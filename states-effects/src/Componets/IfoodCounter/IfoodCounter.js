@@ -1,9 +1,16 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import '../IfoodCounter/IfoodCounter.css'
 
 export default function IfoodCounter() {
     const [value, setValue] = useState(1);
     const [buttonStyle, setButtonstyle] = useState("counter-button-minus-active")
+
+    useEffect(
+      ()=>{
+        alert('Você não pode mais diminuir itens')
+      }, [buttonStyle]
+    )
+
     function down(){
         if(value <= 1){
             setButtonstyle("counter-button-minus-desactive")
